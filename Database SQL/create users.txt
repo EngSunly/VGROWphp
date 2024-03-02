@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS courses (
+  id int(11) PRIMARY KEY AUTO_INCREMENT,
+  title varchar(255) COLLATE utf8mb4_general_ci,
+  description text COLLATE utf8mb4_general_ci,
+  rating decimal(2,1),
+  image_path text COLLATE utf8mb4_general_ci,
+  price decimal(10,2)
+);

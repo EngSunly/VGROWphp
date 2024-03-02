@@ -1,0 +1,7 @@
+	
+id Primary	int(11)	   	AUTO_INCREMENT		
+title	varchar(255)				
+description	text		
+rating	decimal(2,1)						
+image_path	text				
+price	decimal(10,2)				
