@@ -48,6 +48,7 @@
             <a class="admin-nav-link" href="teacher.php" class="nav-link">Teacher</a>
             <a class="admin-nav-link" href="aboutUsManagement.php" class="nav-link">aboutUs</a>
             <a class="admin-nav-link" href="TeamManagement.php" class="nav-link">Team</a>
+            <a class="admin-nav-link" href="OppurtunityManagement.php" class="nav-link">Oppurtunity</a>
             <a class="admin-nav-link" href="ContactManagement.php" class="nav-link">Contact</a>
         </nav>
     </div>
