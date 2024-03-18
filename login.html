@@ -4,13 +4,63 @@
   <title>Login</title>
 </head>
 <body>
-  <h1>Login</h1>
   <form action="login.php" method="post">
+    <h1>Login</h1>
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required><br>
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required><br>
     <input type="submit" value="Login">
+    <a id='returnAnchor'class="navbar-brand" href="index.php">Return</a>
   </form>
 </body>
 </html>
+
+
+<style>
+  body{
+    background-color: #f2f2f2;
+  }
+  /* CSS code for the form */
+  form {
+    width: 300px;
+    margin: auto;
+    
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  #returnAnchor {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+  }
+  #returnAnchor:hover {
+    text-decoration: underline;
+  }
+</style>
