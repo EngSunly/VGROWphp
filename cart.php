@@ -6,84 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cart</title>
 
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        form {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tbody tr:hover {
-            background-color: #f9f9f9;
-        }
-
-        .total-price {
-            text-align: center;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        #removeitem {
-            align: left;
-            font-weight: bold;
-        }
-
-        #goback {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 50px;
-            font-size: 50px;
-            color: blue;
-            /* Set the anchor color to blue */
-            text-decoration: none;
-            /* Remove underline */
-            border: 1px solid black;
-            /* Add border */
-            padding: 10px;
-            /* Add padding */
-        }
-
-        #goback:hover {
-            color: red;
-            /* Set the anchor highlight color to red on hover */
-        }
-    </style>
-
 </head>
 
 <body>
-
-    </style>
+    
 
     </head>
 
@@ -93,15 +19,30 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $userId = $_POST["userId"];
-            echo " Hello User :$userId";
+            // echo " Hello User :$userId";
+        }else {
+            echo "No user found";
+            echo  `<a id='goback' href="index.php">Go back to homepage</a>`;
         }
 
         ?>
 
+        <br>
         <a id='goback' href="index.php">Go back to homepage</a>
 
         <?php
         require_once("connection.php");
+
+        $usernamesql ="SELECT `username` FROM `users` WHERE id = $userId";
+        
+        $usernameresult = mysqli_query($conn, $usernamesql);
+        $username = mysqli_fetch_assoc($usernameresult);
+        echo "<h1> Hello $username[username] Here are the Item in your Carts</h1>";
+
+
+
+
+
         $sql = "SELECT `user_id`, `course_id` FROM `user_cart` WHERE user_id = $userId";
         // echo $sql;
         // Execute the SQL query and fetch the results
@@ -204,6 +145,7 @@
             echo "</table>";
             echo "<div style='text-align: center;'>";
             echo "<h3>Total Price: " . $totalprice . "$</h3>";
+            echo "<button>Make Payment</button>";
             echo "</div>";
 
         }
@@ -214,9 +156,68 @@
 
     </body>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            
+            color: #007bff;
+            text-decoration: none;
+        }
+        #goback{
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </html>
 
-
-</body>
-
-</html>
