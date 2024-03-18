@@ -26,43 +26,60 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto mb-3 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link py-4" href="index.php"
-                style="color: #0866ff; border-bottom: 3px solid #0866ff">Home</a>
+              <a class="nav-link py-4" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="course.html">Courses</a>
+              <a class="nav-link py-4" href="course.php">Courses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="aboutUs.html">About Us</a>
+              <a class="nav-link py-4" href="aboutUs.php">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="ourTeam.html">Our Team</a>
+              <a class="nav-link py-4" href="ourTeam.php">Our Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="Oppurtunity.html">Oppurtunity</a>
+              <a class="nav-link py-4" href="Oppurtunity.php">Oppurtunity</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="contactUs.html">Contact Us</a>
+              <a class="nav-link py-4" href="contactUs.php"
+              style="color: #0866ff; border-bottom: 3px solid #0866ff">Contact Us</a>
             </li>
           </ul>
           <div>
             <?php
             session_start();
             if (isset($_SESSION['username'])) {
-              echo "Welcome, " . $_SESSION['username'] . "! :";
-              echo $_SESSION['userId'];
+              echo "Welcome, " . $_SESSION['username'];
+              echo " ";
               $userId = $_SESSION['userId'];
+              // echo $userId ;
               echo "<br>"; // Add line break for spacing
+              $isAdmin = $_SESSION['isAdmin'];
+              // echo $isAdmin;
+              if($isAdmin == true){
+             
+                echo "<a href='admin\admin.php'>Admin Page";
+                echo "<a/>";
+              }
               ?>
               <a href="logout.php">Logout</a>
+              <form action="cart.php" method="POST">
+                <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                <button type="submit">My Cart</button>
+              </form>
+             
+
+              <!-- <a href="cart.php">My Cart</a> try session to find out about session later -->
+
               <?php
+            
             } else {
               ?>
               <a href="login.html">Login</a>
               <div>or</div>
               <a href="createUserForm.html">Sign UP!</a>
               <?php
-              
+
             }
             ?>
           </div>
@@ -70,68 +87,76 @@
       </div>
     </nav>
   </header>
+ 
+
   <main>
-    <div class="r1">
-      <div class="c1">
-        <p>
-          VGrow is the best for self study, we build this website for short
-          courses and focus on programming language.
-        </p>
-        <a class="nav-link" target="_blank" href="studentRegistration/enroll.html">
-          <button class="c1-btn mt-2 p-2">Enroll Now</button>
-        </a>
-      </div>
-      <div class="c2">
-        <img src="sources/page-1.png" alt="" />
-      </div>
-    </div>
-    <div class="r2">
-      <div class="container pt-5">
-        <h3 class="text-center py-4 text-secondary">Our Courses</h3>
-        <div class="row g-3">
-          <!-- I:\xammp\htdocs\vgrow-main\displayall.php -->
-          <?php
-          include 'displayall.php';
-          ?>
-          <link rel="stylesheet" href="display.css" />
-
-
-        </div>
-        <div class="r3 pt-5">
-          <h3 class="r4-r1 text-center py-4 text-secondary">
-            Feedback from our students
-          </h3>
-          <div class="container d-flex justify-content-center align-items-center pt-3">
-            <div id="review-box">
-              <div id="review-pf">
-                <img src="sources/student-1.jpg" alt="">
-                <h5>Mary Jane</h5>
-                <p>Student of Web Development</p>
-              </div>
-              <div id="review-text">
-                <p>
-                  “Best tutorial I've ever viewed on React, bar none. I have found
-                  this course to be clear, concise, direct, and easy-to-follow. It
-                  has also been fun to watch and easy to comprehend all the
-                  elements. Thank you!”
-                </p>
-              </div>
+      <h3 class="text-center pt-5 text-secondary">Contact</h3>
+      <div class="container">
+        <div class="row g-3 py-5">
+          <div class="col">
+            <div
+              class="box d-flex flex-column align-items-center text-center p-4"
+            >
+              <i class="fa-solid fa-phone text-secondary fs-4 p-4"></i>
+              <p class="fs-5 fw-semibold text-secondary">
+                096 5555 23 / 012 5555 23
+              </p>
+              <p class="fs-5 text-secondary lh-lg">
+                We're interested in working together! Contact now.
+              </p>
             </div>
-            <button id="review-btn" class="btn btn-secondary rounded-pill ms-2">
-              <i class="fa-solid fa-chevron-right text-white"></i>
-            </button>
           </div>
-        </div>
-        <div class="r4 py-5">
-          <h3 class="r4-r1 text-center py-4 text-secondary">Our Teachers</h3>
-          <div class="r4-r2">
-            <?php
-            include 'teacher.php';
-            ?> 
+          <div class="col">
+            <div
+              class="box d-flex flex-column align-items-center text-center p-5"
+            >
+              <i class="fa-solid fa-envelope fs-4 pb-4 text-secondary"></i>
+              <p class="fs-5 fw-semibold text-secondary">VGrow@gmail.com</p>
+              <p class="fs-5 text-secondary lh-lg">
+                Do you want to know about VGrow? Send a message.
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="box d-flex flex-column align-items-center text-center p-5"
+            >
+              <i class="fa-solid fa-location-dot fs-4 pb-4 text-secondary"></i>
+              <p class="fs-5 text-secondary lh-lg">
+                Floor 2, Room 207, Building A, RUPP, មហាវិថី
+                សហពន្ធ័រុស្ស៊ី(១១០), ភ្នំពេញ
+              </p>
             </div>
           </div>
         </div>
-  </main>
+      </div>
+      <div class="container d-flex flex-column align-items-center py-4 map">
+        <h3 class="pb-5 text-center text-secondary">Address</h3>
+        <div class="row">
+          <div class="col">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.770586988356!2d104.88811507466836!3d11.56829714408951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2z4Z6f4Z624Z6A4Z6b4Z6c4Z634Z6R4Z-S4Z6Z4Z624Z6b4Z-Q4Z6Z4Z6X4Z684Z6Y4Z634Z6T4Z-S4Z6R4Z6X4Z-S4Z6T4Z-G4Z6W4Z-B4Z6J!5e0!3m2!1skm!2skh!4v1702130218273!5m2!1skm!2skh"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
   <footer>
     <div class="r5">
       <div class="r5-r1">

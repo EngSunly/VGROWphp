@@ -26,14 +26,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto mb-3 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link py-4" href="index.php"
-                style="color: #0866ff; border-bottom: 3px solid #0866ff">Home</a>
+              <a class="nav-link py-4" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link py-4" href="course.php">Courses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="aboutUs.php">About Us</a>
+              <a class="nav-link py-4" href="aboutUs.php"
+               style="color: #0866ff; border-bottom: 3px solid #0866ff">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link py-4" href="ourTeam.php">Our Team</a>
@@ -87,105 +87,82 @@
       </div>
     </nav>
   </header>
+ 
   <main>
-    <div class="r1">
-      <div class="c1">
-        <p>
-          VGrow is the best for self study, we build this website for short
-          courses and focus on programming language.
-        </p>
-        <a class="nav-link" target="_blank" href="studentRegistration/enroll.html">
-          <button class="c1-btn mt-2 p-2">Enroll Now</button>
-        </a>
-      </div>
-      <div class="c2">
-        <img src="sources/page-1.png" alt="" />
-      </div>
-    </div>
-    <div class="r2">
-      <div class="container pt-5">
-        <h3 class="text-center py-4 text-secondary">Our Courses</h3>
-        <div class="row g-3">
-
-
-
-          <!-- I:\xammp\htdocs\vgrow-main\displayall.php -->
-
-
-
-          <?php
-          include 'displayall.php';
-          ?>
-          <link rel="stylesheet" href="display.css" />
-
-
-        </div>
-        <div class="r3 pt-5">
-          <h3 class="r4-r1 text-center py-4 text-secondary">
-            Feedback from our students
-          </h3>
-          <div class="container d-flex justify-content-center align-items-center pt-3">
-            <div id="review-box">
-              <div id="review-pf">
-                <img src="sources/student-1.jpg" alt="">
-                <h5>Mary Jane</h5>
-                <p>Student of Web Development</p>
-              </div>
-              <div id="review-text">
-                <p>
-                  “Best tutorial I've ever viewed on React, bar none. I have found
-                  this course to be clear, concise, direct, and easy-to-follow. It
-                  has also been fun to watch and easy to comprehend all the
-                  elements. Thank you!”
-                </p>
-              </div>
+      <div class="container mt-5 px-5">
+        <h2 class="text-secondary pb-4">
+          About <span class="text-primary">VGrow</span>
+        </h2>
+        <div class="row">
+          <div class="col">
+            <div class="about-img">
+              <img src="sources/code.jpg" alt="" />
             </div>
-            <button id="review-btn" class="btn btn-secondary rounded-pill ms-2">
-              <i class="fa-solid fa-chevron-right text-white"></i>
-            </button>
           </div>
-        </div>
-        <div class="r4 py-5">
-          <h3 class="r4-r1 text-center py-4 text-secondary">Our Teachers</h3>
-          <div class="r4-r2">
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-1.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Androw Ban</h6>
-              </div>
-            </div>
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-2.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Elly Jen</h6>
-                <!-- <p>Professional of Mobile app</p> -->
-              </div>
-            </div>
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-3.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Ahly Jone</h6>
-                <!-- <p>Professional of Mobile app</p> -->
-              </div>
-            </div>
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-4.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Dane Sada</h6>
-                <!-- <p>Professional of Mobile app</p> -->
-              </div>
+          <div class="col">
+            <div
+              class="about-content d-flex justify-content-center flex-column align-items-start"
+            >
+              <h2 class="text-secondary pt-5">
+                A Little Bit of <span class="text-primary">VGrow</span>
+              </h2>
+              <p class="text-secondary lh-lg">
+                VGrow is a fast growing software school that keeps culture and
+                creativaty at the heart of everything we do. Our mission is to
+                help students unlock their creativity and build exceptional
+                content using our uniquely powerful design platform and our
+                tirelessy helpful design support and education resource and do
+                it all without writing a single line of code.
+              </p>
             </div>
           </div>
         </div>
-  </main>
+      </div>
+      <div class="container mt-5 px-5">
+        <h2 class="text-secondary">
+          With Our <span class="text-primary">VGrow</span>
+        </h2>
+        <div class="row py-4 g-3">
+          <div class="col">
+            <div
+              class="core-value p-4 d-flex align-items-center text-center lh-lg flex-column"
+            >
+              <i class="fa-solid fa-award text-secondary fs-1 pb-4"></i>
+              <h3 class="text-primary">Core Value</h3>
+              <p class="text-secondary">
+                We focused on providing convenience for our student easy to
+                learn and practical way with students-oriented approach.
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="core-value p-4 d-flex align-items-center text-center lh-lg flex-column"
+            >
+              <i class="fa-solid fa-flag text-secondary fs-1 pb-4"></i>
+              <h3 class="text-primary">Mission</h3>
+              <p class="text-secondary">
+                Education websites can have a great deal of content, and not all
+                of it lends itself to navigation in the same way.
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="core-value p-4 d-flex align-items-center text-center lh-lg flex-column"
+            >
+              <i class="fa-solid fa-eye text-secondary fs-1 pb-4"></i>
+              <h3 class="text-primary">Vision</h3>
+              <p class="text-secondary">
+                I directly applied the concepts and skills I learned from my
+                courses to an exciting new project at work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
   <footer>
     <div class="r5">
       <div class="r5-r1">
