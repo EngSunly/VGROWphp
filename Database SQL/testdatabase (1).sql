@@ -27,21 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `feedback`
 --
 
-CREATE TABLE `feedback` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(255) NOT NULL,
-  `Std_Course_Type` varchar(255) NOT NULL,
-  `Feedback` varchar(255) NOT NULL,
-  `Image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Dumping data for table `feedback`
---
-
-INSERT INTO `feedback` (`ID`, `Name`, `Std_Course_Type`, `Feedback`, `Image`) VALUES
-(1, 'Maryta', 'Student of web development', '“This course was very well-organized and easy to follow. The instructor was very knowledgeable and explained everything in a way that was easy to understand. I would recommend this course to anyone who wants to learn HTML.”', 'teacher-1.jpg'),
-(2, 'Jonh Son', 'Student of Data Analytic', '“This course was very well-organized and easy to follow. The instructor was very knowledgeable and explained everything in a way that was easy to understand. I would recommend this course to anyone who wants to learn HTML.”', 'teacher-2.jpg');
 
 -- --------------------------------------------------------
 
@@ -82,27 +69,6 @@ INSERT INTO `newcourses` (`id`, `title`, `description`, `rating`, `image_path`, 
 (56, 'kealeng', 'kealeng', 4.5, 'sources/Courses/Kealeng.jpg', 900000.20, 1);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `teacher`
---
-
-CREATE TABLE `teacher` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(255) NOT NULL,
-  `Image` varchar(255) NOT NULL,
-  `Active` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `teacher`
---
-
-INSERT INTO `teacher` (`ID`, `Name`, `Image`, `Active`) VALUES
-(2, 'Liza', 'teacher-3.jpg', 'yes'),
-(15, 'Jonh Dev', 'teacher-1.jpg', 'yes'),
-(16, 'Jonh son', 'teacher-4.jpg', 'no'),
-(23, 'Ma Ryta', 'teacher-2.jpg', 'no');
 
 -- --------------------------------------------------------
 
