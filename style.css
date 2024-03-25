@@ -441,3 +441,9 @@ main .course-page{
         width: 300px;
     }
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns of equal size */
+  }
+  
