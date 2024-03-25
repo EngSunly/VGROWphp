@@ -2,7 +2,7 @@
 
   require_once 'connection.php';
   $conn = connectToDatabase();
-  $sql = "SELECT * FROM `teacher`";
+  $sql = "SELECT * FROM `teacher` WHERE Active ='yes'";
   $rs = $conn->query($sql);
 
   while ($row = mysqli_fetch_assoc($rs)) {
