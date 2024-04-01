@@ -94,7 +94,7 @@
           VGrow is the best for self study, we build this website for short
           courses and focus on programming language.
         </p>
-        <a class="nav-link" target="_blank" href="studentRegistration/enroll.html">
+        <a class="nav-link" target="_blank" href="createUserForm.html">
           <button class="c1-btn mt-2 p-2">Enroll Now</button>
         </a>
       </div>
