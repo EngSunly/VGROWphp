@@ -67,9 +67,7 @@
                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                 <button type="submit">My Cart</button>
               </form>
-             
-
-              <!-- <a href="cart.php">My Cart</a> try session to find out about session later -->
+            
 
               <?php
             
