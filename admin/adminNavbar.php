@@ -7,7 +7,7 @@
         <a class="admin-nav-link" href="../index.php" class="nav-link">Preview</a>
         <a class="admin-nav-link" href="admin.php" class="nav-link">Course</a>
         <a class="admin-nav-link" href="teacher.php" class="nav-link">Teacher</a>
-        <a class="admin-nav-link" href="aboutUsManagement.php" class="nav-link">aboutUs</a>
+        <a class="admin-nav-link" href="aboutUsManagement.php" class="nav-link">About US</a>
         <a class="admin-nav-link" href="TeamManagement.php" class="nav-link">Team</a>
         <a class="admin-nav-link" href="OppurtunityManagement.php" class="nav-link">Oppurtunity</a>
         <a class="admin-nav-link" href="ContactManagement.php" class="nav-link">Contact</a>
