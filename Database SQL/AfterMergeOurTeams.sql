@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 03:38 PM
+-- Generation Time: Apr 22, 2024 at 11:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `testdatabase`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `developer`
+--
+
+CREATE TABLE `developer` (
+  `ID` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `ImagePath` varchar(255) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `developer`
+--
+
+INSERT INTO `developer` (`ID`, `Name`, `ImagePath`, `Description`) VALUES
+(5, 'Eng Sunly', 'Sunly.jpg', 'Front End and Back End\r\nQuality Assurance and Testing'),
+(6, 'Kea Sreyleak', 'Sreyleak.jpg', 'Front End Back End \r\nTeacher Management'),
+(7, 'Khoeun Ratha', 'Ratha.jpg', 'Front End Page'),
+(8, 'Ly Sokneath', 'Sokneath.jpg', 'Front End Page'),
+(9, 'Ngin Davorn', 'Davorn.jpg', 'Front End ,Graphic Designer And Coordinator'),
+(10, 'Ngoun Kealeng', 'Kealeng.jpg', 'Coordinator\r\nFront End Back End Our Teams '),
+(11, 'Thouen Theara', 'Theara.jpg', 'Front End page'),
+(12, 'Sao Chansovath', 'placeholderimg.jpg', 'Front End Opportunity');
 
 -- --------------------------------------------------------
 
@@ -79,7 +106,75 @@ INSERT INTO `newcourses` (`id`, `title`, `description`, `rating`, `image_path`, 
 (27, 'React Native for Mobile Development', 'Build native mobile apps for iOS and Android with React Native, a framework using JavaScript and React.', 4.8, 'sources/Courses/react_native.png', 89.99, 1),
 (28, 'Swift Programming: Build iOS Apps', 'Learn Swift, the official language for developing iOS apps on Apple devices, and bring your app ideas to life.', 4.9, 'sources/Courses/swift.jpg', 99.99, 1),
 (38, 'Money', 'Money for computer', 0.3, 'sources/Courses/11119.png', 0.08, 0),
-(56, 'kealeng', 'kealeng', 4.5, 'sources/Courses/Kealeng.jpg', 900000.20, 1);
+(56, 'kealeng', 'kealeng', 4.5, 'sources/Courses/Kealeng.jpg', 900000.20, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `platform`
+--
+
+CREATE TABLE `platform` (
+  `Id` int(11) NOT NULL,
+  `PlatformName` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `platform`
+--
+
+INSERT INTO `platform` (`Id`, `PlatformName`) VALUES
+(1, 'facebook'),
+(3, 'instagram'),
+(4, 'linkedin'),
+(2, 'telegram');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `social_media`
+--
+
+CREATE TABLE `social_media` (
+  `Id` int(11) NOT NULL,
+  `DeveloperID` int(11) DEFAULT NULL,
+  `PlatformId` int(11) DEFAULT NULL,
+  `Url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `social_media`
+--
+
+INSERT INTO `social_media` (`Id`, `DeveloperID`, `PlatformId`, `Url`) VALUES
+(7, 5, 1, 'https://www.facebook.com/SunlyCoding'),
+(8, 5, 2, 'https://t.me/EngSunly'),
+(9, 5, 3, 'https://www.instagram.com/sunly_3?fbclid=IwAR3rzQ5dFy__DvKEUuzUda11523MePJydNl4TG_Trtr3_muwF5-dRQcSMBA'),
+(10, 5, 4, 'https://www.linkedin.com/in/engsunly/?originalSubdomain=kh'),
+(11, 6, 1, 'https://www.facebook.com/aiiLyLeak'),
+(12, 6, 2, 'https://t.me/srey_leak_kea'),
+(13, 6, 3, 'https://www.instagram.com/kea_sreyleak/'),
+(14, 6, 4, 'https://www.linkedin.com/in/kea-sreyleak-030914275/?originalSubdomain=kh'),
+(15, 7, 1, 'https://www.facebook.com/profile.php?id=100050872305202'),
+(16, 7, 2, 'https://t.me/khoeunratha'),
+(17, 7, 3, 'https://www.instagram.com/khoeun__ratha/'),
+(18, 7, 4, 'https://www.linkedin.com/in/engsunly/?originalSubdomain=kh'),
+(19, 8, 1, 'https://www.facebook.com/july.neath.14'),
+(20, 8, 2, 'https://t.me/Ly_Sokneath'),
+(21, 8, 3, 'https://www.instagram.com/julyneath/'),
+(22, 9, 1, 'https://www.facebook.com/profile.php?id=100076221452983'),
+(23, 9, 2, 'https://t.me/Bong14k'),
+(24, 9, 3, 'https://www.instagram.com/da_vornnn/'),
+(25, 9, 4, 'https://www.linkedin.com/in/ngin-davorn2023/?originalSubdomain=kh'),
+(26, 10, 1, 'https://www.facebook.com/ng.leng2'),
+(27, 10, 2, 'https://t.me/kealeng_ngoun'),
+(28, 10, 3, 'https://www.instagram.com/sunly_3?fbclid=IwAR3rzQ5dFy__DvKEUuzUda11523MePJydNl4TG_Trtr3_muwF5-dRQcSMBA'),
+(29, 10, 4, 'https://www.linkedin.com/in/ngoun-kealeng-967016214/?originalSubdomain=kh'),
+(30, 11, 1, 'https://www.facebook.com/thoeun.theara.9'),
+(31, 11, 2, 'https://t.me/+85587507266'),
+(32, 11, 3, 'https://instagram.com/uzhumika?igshid=MzMyNGUyNmU2YQ=='),
+(33, 11, 4, 'https://www.linkedin.com/in/thoeun-theara-5081bb2a4/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'),
+(34, 12, 2, 'https://t.me/chansovath');
 
 -- --------------------------------------------------------
 
@@ -165,10 +260,31 @@ INSERT INTO `user_cart` (`user_id`, `course_id`) VALUES
 --
 
 --
+-- Indexes for table `developer`
+--
+ALTER TABLE `developer`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `newcourses`
 --
 ALTER TABLE `newcourses`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `platform`
+--
+ALTER TABLE `platform`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `PlatformName` (`PlatformName`);
+
+--
+-- Indexes for table `social_media`
+--
+ALTER TABLE `social_media`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `DeveloperID` (`DeveloperID`),
+  ADD KEY `PlatformId` (`PlatformId`);
 
 --
 -- Indexes for table `teacher`
@@ -196,10 +312,28 @@ ALTER TABLE `user_cart`
 --
 
 --
+-- AUTO_INCREMENT for table `developer`
+--
+ALTER TABLE `developer`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `newcourses`
 --
 ALTER TABLE `newcourses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `platform`
+--
+ALTER TABLE `platform`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `social_media`
+--
+ALTER TABLE `social_media`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `teacher`
@@ -216,6 +350,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `social_media`
+--
+ALTER TABLE `social_media`
+  ADD CONSTRAINT `social_media_ibfk_1` FOREIGN KEY (`DeveloperID`) REFERENCES `developer` (`ID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `social_media_ibfk_2` FOREIGN KEY (`PlatformId`) REFERENCES `platform` (`Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `user_cart`

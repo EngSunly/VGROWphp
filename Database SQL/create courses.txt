@@ -6,4 +6,3 @@ CREATE TABLE IF NOT EXISTS courses (
   image_path text COLLATE utf8mb4_general_ci,
   price decimal(10,2)
 );
-

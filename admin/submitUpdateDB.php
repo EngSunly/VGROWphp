@@ -27,11 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Execute the query
   if ($stmt->execute()) {
     echo "Course updated successfully.";
-     // button that redirect to admin.php
-     echo "<a href='admin.php'>Back to Admin</a>";
   } else {
-     // button that redirect to admin.php
-     echo "<a href='admin.php'>Back to Admin</a>";
     echo "Error updating course: " . $conn->error;
   }
 

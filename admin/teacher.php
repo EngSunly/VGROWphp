@@ -38,14 +38,14 @@
 
 <body>
     <div id="admincenter">
-        <h1>
+        <header>
             Admin Dashboard and Navigation
-        </h1>
+        </header>
 
         <nav>
             <a class="admin-nav-link" href="../index.php" class="nav-link">Preview</a>
             <a class="admin-nav-link" href="admin.php" class="nav-link">Course</a>
-            <a class="admin-nav-link" href="index1.php" class="nav-link">Teacher</a>
+            <a class="admin-nav-link" href="teacher.php" class="nav-link">Teacher</a>
             <a class="admin-nav-link" href="aboutUsManagement.php" class="nav-link">aboutUs</a>
             <a class="admin-nav-link" href="TeamManagement.php" class="nav-link">Team</a>
             <a class="admin-nav-link" href="OppurtunityManagement.php" class="nav-link">Oppurtunity</a>
@@ -54,8 +54,12 @@
     </div>
 
     <main>
-        <?php include('index1.php') ?>
-
+        <div>input your page management here</div>
+        <div>rule dont edit other File</div>
+        <div>create your own table in the database</div>
+        <div>create your own form</div>
+        <div>create your own display table</div>
+        <div>dont forget to close connection to database</div>
     </main>
 
     <footer>
