@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2024 at 11:21 AM
+-- Generation Time: Apr 22, 2024 at 11:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,11 +39,11 @@ CREATE TABLE `developer` (
 --
 
 INSERT INTO `developer` (`ID`, `Name`, `ImagePath`, `Description`) VALUES
-(5, 'Eng Sunly', 'Sunly.jpg', 'Front End and Back End\r\nQuality Assurance and Testing'),
+(5, 'Eng Sunly', 'Sunly.jpg', 'Front End and Back End Homepage,\r\n\r\nQuality Assurance and Testing'),
 (6, 'Kea Sreyleak', 'Sreyleak.jpg', 'Front End Back End \r\nTeacher Management'),
 (7, 'Khoeun Ratha', 'Ratha.jpg', 'Front End Page'),
 (8, 'Ly Sokneath', 'Sokneath.jpg', 'Front End Page'),
-(9, 'Ngin Davorn', 'Davorn.jpg', 'Front End ,Graphic Designer And Coordinator'),
+(9, 'Ngin Davorn', 'Davorn.jpg', 'Code Documentation ,Coordinator ,Graphic Designer And \r\nFront End ,'),
 (10, 'Ngoun Kealeng', 'Kealeng.jpg', 'Coordinator\r\nFront End Back End Our Teams '),
 (11, 'Thouen Theara', 'Theara.jpg', 'Front End page'),
 (12, 'Sao Chansovath', 'placeholderimg.jpg', 'Front End Opportunity');
