@@ -1,29 +1,9 @@
 <style>
-    header {
-        font-size: 50px;
-    }
-
-    #uploadC {
-        display: flex;
-        justify-content: center;
-        font-size: 20px;
-        border: 2px solid black;
-        padding: 10px;
-        margin: 10px;
-        text-decoration: none;
-        color: black;
-
-    }
-
-
     /* Overall table styling */
     table {
         width: 100%;
-        /* Adjust if desired */
-        font-family: sans-serif;
-        /* Choose a suitable font */
+        font-family: Arial, sans-serif;
         background-color: #f8f9fa;
-        /* Light background */
         border-radius: 4px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
@@ -31,9 +11,7 @@
     /* Table header styling */
     th {
         background-color: #dee2e6;
-        /* Subtle header background */
         color: #495057;
-        /* Darker text color */
         padding: 10px 15px;
         border: 1px solid #dee2e6;
         text-align: center;
@@ -55,39 +33,56 @@
     img {
         width: 100%;
         height: auto;
-        /* Maintain aspect ratio */
         max-width: 150px;
-        /* Adjust image size as needed */
     }
 
     /* Style buttons */
     button {
         background-color: #4CAF50;
-        /* Green color */
         color: white;
         padding: 5px 10px;
         border: none;
         border-radius: 3px;
         cursor: pointer;
         margin: 5px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 
     button:hover {
         background-color: #45a049;
-        /* Darker green on hover */
     }
 
     #landingCoursesIntro {
-        font-size: 50px;
+        font-size: 30px;
         text-align: center;
         margin: 10px;
+    }
 
+    #uploadC {
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        border: 2px solid black;
+        padding: 10px;
+        margin: 10px;
+        text-decoration: none;
+        color: black;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
 
+    #uploadC:hover {
+        background-color: #e9ecef;
     }
 </style>
 <div id="landingCoursesIntro"> Welcome to Course Management </div>
 <div>
-    <a id="uploadC" href="upload.html">Add Course</a>
+    <a id="uploadC" href="upload.html">Add More Course</a>
 
 </div>
 
@@ -101,23 +96,29 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<table class='table table-bordered'>";
-    echo "<thead><tr><th>ID</th><th>Title</th><th>Description</th><th>Rating</th><th>Price</th></tr></thead>";
+    echo "<thead><tr><th>ID</th><th>Title</th><th>Picture</th><th>Description</th><th>Rating</th><th>Price</th><th>Action</th></tr></thead>";
     echo "<tbody>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $row['id'] . "</td>";
-        echo "<td>" . $row['title'] . "</td>";
+        echo "<td>" . $row['title']. "</td>"; ;
+        
+        echo "<td>";
+        echo "<img src='../" . $row['image_path'] . "' class='img-fluid' alt='" . $row['image_path'] . "' />";
+        echo "</td>";
+
         echo "<td>" . $row['description'] . "</td>";
+
 
         // Round the rating and output with one decimal place
         $rounded_rating = round($row['rating'], 1);
         echo "<td>" . $rounded_rating . "</td>";
 
         echo "<td>$" . $row['price'] . "</td>";
-        echo "</tr>";
+
 
         // Add the image row after the course details
-        echo "<tr><td colspan='4'><img src='../" . $row['image_path'] . "' class='img-fluid' alt='" . $row['image_path'] . "' />";
+        echo "<td>";
 
         $id = $row['id'];
         echo "<form action='editDB.php' method='get'>";

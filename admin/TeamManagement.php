@@ -4,6 +4,7 @@
 <head>
     <title>Admin Dashboard</title>
 
+    <?php include 'adminNavbar.php'; ?>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -13,54 +14,9 @@
     <link rel="shortcut icon" href="./sources/logo.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="../style.css" />
 
-    <style>
-        body {
-            /* Add your styles for the body here */
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 25px;
-        }
-
-        .admin-nav-link {
-            /* Add your styles for the <a> tags here */
-            color: blue;
-            text-decoration: none;
-            margin-right: 10px;
-            font-size: 35px;
-            border: 0.5px solid black;
-        }
-
-        .admin-nav-link:hover {
-            /* Add your styles for the <a> tags here */
-            color: red;
-        }
-
-        #admincenter {
-            text-align: center;
-            border: 1px solid black;
-            padding: 10px;
-        }
-    </style>
-
 </head>
 
 <body>
-    <div id="admincenter">
-        <header>
-            Admin Dashboard and Navigation
-        </header>
-
-        <nav>
-            <a class="admin-nav-link" href="../index.php" class="nav-link">Preview</a>
-            <a class="admin-nav-link" href="admin.php" class="nav-link">Course</a>
-            <a class="admin-nav-link" href="teacher.php" class="nav-link">Teacher</a>
-            <a class="admin-nav-link" href="aboutUsManagement.php" class="nav-link">aboutUs</a>
-            <a class="admin-nav-link" href="TeamManagement.php" class="nav-link">Team</a>
-            <a class="admin-nav-link" href="OppurtunityManagement.php" class="nav-link">Oppurtunity</a>
-            <a class="admin-nav-link" href="ContactManagement.php" class="nav-link">Contact</a>
-        </nav>
-    </div>
 
     <main>
         <h4 class="text-center pt-4 pb-2">Our Team Project</h4>
