@@ -94,7 +94,7 @@
           VGrow is the best for self study, we build this website for short
           courses and focus on programming language.
         </p>
-        <a class="nav-link" target="_blank" href="studentRegistration/enroll.html">
+        <a class="nav-link" target="_blank" href="createUserForm.html">
           <button class="c1-btn mt-2 p-2">Enroll Now</button>
         </a>
       </div>
@@ -145,46 +145,15 @@
             </button>
           </div>
         </div>
-        <div class="r4 py-5">
+        <div class="r4 py-5 g-3 ">
           <h3 class="r4-r1 text-center py-4 text-secondary">Our Teachers</h3>
-          <div class="r4-r2">
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-1.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Androw Ban</h6>
-              </div>
-            </div>
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-2.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Elly Jen</h6>
-                <!-- <p>Professional of Mobile app</p> -->
-              </div>
-            </div>
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-3.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Ahly Jone</h6>
-                <!-- <p>Professional of Mobile app</p> -->
-              </div>
-            </div>
-            <div class="r4-r2-c1">
-              <div class="r4-r2-c1-r1">
-                <img src="sources/teacher-4.jpg" alt="" />
-              </div>
-              <div class="r4-r2-c1-r2">
-                <h6>Dane Sada</h6>
-                <!-- <p>Professional of Mobile app</p> -->
-              </div>
-            </div>
+          <div class="r4-r2 ">
+            <?php include('teacher.php') ?>
+            
           </div>
         </div>
+      </div>
+    </div>
   </main>
   <footer>
     <div class="r5">

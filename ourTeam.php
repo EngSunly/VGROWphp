@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="shortcut icon" href="./sources/logo.jpg" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
       <div class="container">
         <a class="navbar-brand" href="index.php">VGrow</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,7 +35,8 @@
               <a class="nav-link py-4" href="aboutUs.php">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link py-4" href="ourTeam.php" style="color: #0866ff; border-bottom: 3px solid #0866ff">Our Team</a>
+              <a class="nav-link py-4" href="ourTeam.php"
+                style="color: #0866ff; border-bottom: 3px solid #0866ff">Our Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link py-4" href="Oppurtunity.php">Oppurtunity</a>
@@ -53,29 +56,29 @@
               echo "<br>"; // Add line break for spacing
               $isAdmin = $_SESSION['isAdmin'];
               // echo $isAdmin;
-              if ($isAdmin == true) {
-
+              if($isAdmin == true){
+             
                 echo "<a href='admin\admin.php'>Admin Page";
                 echo "<a/>";
               }
-            ?>
+              ?>
               <a href="logout.php">Logout</a>
               <form action="cart.php" method="POST">
                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                 <button type="submit">My Cart</button>
               </form>
-
+             
 
               <!-- <a href="cart.php">My Cart</a> try session to find out about session later -->
 
-            <?php
-
+              <?php
+            
             } else {
-            ?>
+              ?>
               <a href="login.html">Login</a>
               <div>or</div>
               <a href="createUserForm.html">Sign UP!</a>
-            <?php
+              <?php
 
             }
             ?>
@@ -87,85 +90,323 @@
 
 
   <main>
-    <h4 class="text-center pt-4 pb-2">Our Team Project</h4>
-    <div class="container">
-      <div class="row g-3 py-3">
-        <?php
-        require_once("connection.php");
-
-        $sql = "SELECT d.Name, d.ImagePath, d.Description, p.PlatformName, sm.Url 
-        FROM developer d
-        LEFT JOIN social_media sm ON d.Id = sm.DeveloperID
-        LEFT JOIN platform p ON sm.PlatformId = p.Id";
-
-        $result = $conn->query($sql);
-
-        $developers = [];
-
-        if ($result->num_rows > 0) {
-          // Process each row
-          while ($row = $result->fetch_assoc()) {
-            // Create an associative array for each developer
-            if (!isset($developers[$row['Name']])) {
-              $developers[$row['Name']] = [
-                'Name' => $row['Name'],
-                'ImagePath' => $row['ImagePath'],
-                'Description' => $row['Description'],
-                'SocialMedia' => []
-              ];
-            }
-            if (!empty($row['PlatformName']) && !empty($row['Url'])) {
-              $developers[$row['Name']]['SocialMedia'][$row['PlatformName']] = $row['Url'];
-            }
-          }
-        }
-
-        $conn->close();
-
-        $source_dir = "sources/";
-
-        foreach ($developers as $developer) {
-          $image_url = $source_dir . $developer['ImagePath'];
-          echo '<div class="col">
-            <div class="card d-flex justify-content-center align-items-center p-3" style="width: 18rem">
+      <h4 class="text-center pt-4 pb-2">Our Team Project</h4>
+      <div class="container">
+        <div class="row g-3 py-3">
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
               <div class="team-card-pf">
-                <img src="' . $image_url . '" class="card-img-top" alt="..." />
+                <img src="sources/Sunly.jpg" class="card-img-top" alt="..." />
               </div>
               <div class="card-body team-card-body text-center">
-                <h5 class="card-title">' . $developer['Name'] . '</h5>
-                <p class="card-text">' . $developer['Description'] . '</p>
-                <div class="d-flex justify-content-around">';
-
-          foreach ($developer['SocialMedia'] as $platform => $url) {
-            $iconColor = '';
-            switch ($platform) {
-              case 'facebook':
-                $iconColor = '#0866ff';
-                break;
-              case 'telegram':
-                $iconColor = '#28a7e8';
-                break;
-              case 'instagram':
-                $iconColor = '#f60683';
-                break;
-              case 'linkedin':
-                $iconColor = '#0073b2';
-                break;
-            }
-            echo '<a target="_blank" href="' . $url . '">
-                <i class="fa-brands fa-' . $platform . '" style="color: ' . $iconColor . '"></i>
-              </a>';
-          }
-
-          echo '    </div>
+                <h5 class="card-title">Eng Sunly</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/SunlyCoding">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/EngSunly">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/sunly_3?fbclid=IwAR3rzQ5dFy__DvKEUuzUda11523MePJydNl4TG_Trtr3_muwF5-dRQcSMBA"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/engsunly/?originalSubdomain=kh"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>';
-        }
-        ?>
+          </div>
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/Sreyleak.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Kea Sreyleak</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/aiiLyLeak/">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/srey_leak_kea">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/kea_sreyleak/"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/kea-sreyleak-030914275/?originalSubdomain=kh"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/Ratha.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Khoeun Ratha</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/profile.php?id=100050872305202">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/khoeunratha">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/khoeun__ratha/"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/engsunly/?originalSubdomain=kh"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/Sokneath.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Ly Sokneath</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/july.neath.14">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/Ly_Sokneath">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/julyneath/"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="#"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/Davorn.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Ngin Davorn</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/profile.php?id=100076221452983">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/Bong14k">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/da_vornnn/"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/ngin-davorn2023/?originalSubdomain=kh"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/Kealeng.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Ngoun Kealeng</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/ng.leng2">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/kealeng_ngoun">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/sunly_3?fbclid=IwAR3rzQ5dFy__DvKEUuzUda11523MePJydNl4TG_Trtr3_muwF5-dRQcSMBA"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/ngoun-kealeng-967016214/?originalSubdomain=kh"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div
+              class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/Theara.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Thouen Theara</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="https://www.facebook.com/thoeun.theara.9">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/+85587507266">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://instagram.com/uzhumika?igshid=MzMyNGUyNmU2YQ=="
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/thoeun-theara-5081bb2a4/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card d-flex justify-content-center align-items-center p-3"
+              style="width: 18rem"
+            >
+              <div class="team-card-pf">
+                <img src="sources/placeholderimg.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card-body team-card-body text-center">
+                <h5 class="card-title">Sao Chansovath</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make.
+                </p>
+                <div class="d-flex justify-content-around">
+                  <a target="_blank" href="#">
+                    <i class="fa-brands fa-facebook" style="color: #0866ff"></i>
+                  </a>
+                  <a target="_blank" href="https://t.me/chansovath">
+                    <i class="fa-brands fa-telegram" style="color: #28a7e8"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="#"
+                  >
+                    <i
+                      class="fa-brands fa-instagram"
+                      style="color: #f60683"
+                    ></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    href="#"
+                  >
+                    <i class="fa-brands fa-linkedin" style="color: #0073b2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
 
   <footer>
@@ -194,7 +435,8 @@
           <h5>Contact Us</h5>
           <a href="#" class="nav-link"><i class="fa-solid fa-phone"></i> 023 5555 23</a>
           <a href="#" class="nav-link"><i class="fa-solid fa-envelope"></i> VGrow@gmail.com</a>
-          <a href="https://www.google.com/maps/place/%E1%9E%9F%E1%9E%B6%E1%9E%80%E1%9E%9B%E1%9E%9C%E1%9E%B7%E1%9E%91%E1%9F%92%E1%9E%99%E1%9E%B6%E1%9E%9B%E1%9F%90%E1%9E%99%E1%9E%97%E1%9E%BC%E1%9E%98%E1%9E%B7%E1%9E%93%E1%9F%92%E1%9E%91%E1%9E%97%E1%9F%92%E1%9E%93%E1%9F%86%E1%9E%96%E1%9F%81%E1%9E%89/@11.5787015,104.8812305,15z/data=!4m10!1m2!2m1!1srupp!3m6!1s0x3109519fe4077d69:0x20138e822e434660!8m2!3d11.5682919!4d104.89069!15sCgRydXBwkgEKdW5pdmVyc2l0eeABAA!16s%2Fm%2F0278m39?entry=ttu" target="_blank" class="nav-link"><i class="fa-solid fa-location-dot"></i> មហាវិថី សហពន្ធ័រុស្ស៊ី
+          <a href="https://www.google.com/maps/place/%E1%9E%9F%E1%9E%B6%E1%9E%80%E1%9E%9B%E1%9E%9C%E1%9E%B7%E1%9E%91%E1%9F%92%E1%9E%99%E1%9E%B6%E1%9E%9B%E1%9F%90%E1%9E%99%E1%9E%97%E1%9E%BC%E1%9E%98%E1%9E%B7%E1%9E%93%E1%9F%92%E1%9E%91%E1%9E%97%E1%9F%92%E1%9E%93%E1%9F%86%E1%9E%96%E1%9F%81%E1%9E%89/@11.5787015,104.8812305,15z/data=!4m10!1m2!2m1!1srupp!3m6!1s0x3109519fe4077d69:0x20138e822e434660!8m2!3d11.5682919!4d104.89069!15sCgRydXBwkgEKdW5pdmVyc2l0eeABAA!16s%2Fm%2F0278m39?entry=ttu"
+            target="_blank" class="nav-link"><i class="fa-solid fa-location-dot"></i> មហាវិថី សហពន្ធ័រុស្ស៊ី
             (១១០), ភ្នំពេញ</a>
         </div>
       </div>
@@ -214,9 +456,13 @@
   <script src="https://kit.fontawesome.com/1f1308a9f0.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
