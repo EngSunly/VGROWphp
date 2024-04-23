@@ -46,6 +46,7 @@
       cursor: pointer;
     }
   </style>
+  <?php include 'adminNavbar.php'; ?>
 </head>
 
 <body>
